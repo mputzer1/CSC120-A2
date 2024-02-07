@@ -1,3 +1,5 @@
+#from oo_resale_shop import item_id ---) Not working
+
 class Computer:
 
     # What attributes will it need?
@@ -6,11 +8,16 @@ class Computer:
     new_os: Optional[str] = None
     price: int
     new_price: int
+    item_id: int
 
     # How will you set up your constructor?
     # Remember: in python, all constructors have the same name (__init__)
-    def __init__(self):
-
+    def __init__(year_made: int, new_os: Optional[str] = None, price: int, new_price: int, item_id: int):
+        this.year_made = year_made
+        this.new_os = new_os
+        this.price = price
+        this.new_price = new_price
+        this.item_id = item
 
     def update_price(item_id: int, new_price: int):
         if item_id in inventory:
