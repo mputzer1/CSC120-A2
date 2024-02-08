@@ -63,7 +63,10 @@ class ResaleShop:
         else:
             print("No inventory to display.")
 
-
+    """
+    Updates the price of computer based on the year made 
+    and updates the operating system.
+    """
     def refurbish(self, item_id: int, new_os: Optional[str] = None):
         if item_id in self.inventory:
             computer = self.inventory[item_id] # locate the computer
