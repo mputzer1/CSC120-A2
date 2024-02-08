@@ -1,32 +1,48 @@
+#imports useful containers from the typing module
 from typing import Dict, Optional
+
+#imports the computer object
 import computer
 
+#creates an object called ResaleShop
 class ResaleShop:
 
-    # What attributes will it need?
-
+    #The following are the core attributes of the resale shop
     inventory : Dict[int, Dict]
     itemID: int
 
-    # How will you set up your constructor?
-    # Remember: in python, all constructors have the same name (__init__)
+    """
+    The following constructor initalizes the attributes of the resale shop. 
+    The inventory begins with nothing in it while the itemID starts at 0.
+    """
     def __init__(self):
         self.inventory = {}
         self.itemID = 0
 
-    # What methods will you need?
-
+    
+    """
+    Takes in a Dict containing all the information about a computer,
+    adds it to the inventory, returns the assigned item_id
+    """
     def buy(self, computer: object):
         self.itemID += 1 # increment itemID
         self.inventory[self.itemID] = computer
         return self.itemID
     
+    """
+    Takes in an item_id and a new price, updates the price of the associated
+    computer if it is the inventory, prints error message otherwise
+    """
     def update_price(self, item_id: int, new_price: int, computer: object):
         if item_id in self.inventory:
             self.inventory[item_id].update_price(new_price)
         else:
             print("Item", item_id, "not found. Cannot update price.")
     
+    """
+    Takes in an item_id, removes the associated computer if it is the inventory, 
+    prints error message otherwise
+    """
     def sell(self, item_id: int):
         if item_id in self.inventory:
             del self.inventory[item_id]
@@ -34,6 +50,9 @@ class ResaleShop:
         else: 
             print("Item", item_id, "not found. Please select another item to sell.")
 
+    """
+    prints all the items in the inventory (if it isn't empty), prints error otherwise
+    """
     def print_inventory(self):
     # If the inventory is not empty
         if self.inventory:
@@ -43,6 +62,7 @@ class ResaleShop:
                 print(f'Item ID: {item_id} : {self.inventory[item_id].string_computer()}')
         else:
             print("No inventory to display.")
+
 
     def refurbish(self, item_id: int, new_os: Optional[str] = None):
         if item_id in self.inventory:
