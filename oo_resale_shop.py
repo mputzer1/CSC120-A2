@@ -8,7 +8,7 @@ import computer
 class ResaleShop:
 
     #The following are the core attributes of the resale shop
-    inventory : Dict[int, Dict]
+    inventory : list[int, list]
     itemID: int
 
     """
